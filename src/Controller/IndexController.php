@@ -8,7 +8,15 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/', name: 'form')]
+    #[Route('/', name: 'index')]
+    public function index(): Response
+    {
+        return $this->render('pages/index.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
+    #[Route('/form', name: 'form')]
     public function form(): Response
     {
         return $this->render('pages/Form.html.twig', [
@@ -16,11 +24,5 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('/Home', name: 'index')]
-    public function index(): Response
-    {
-        return $this->render('pages/index.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
-    }
+    
 }
