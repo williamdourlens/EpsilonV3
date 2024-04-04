@@ -1,0 +1,47 @@
+{% block head %}
+	<meta charset="UTF-8">
+	<title>{% block title %}EPSILON{% endblock %}</title>
+	<link rel="icon" href="{{ asset('img/logo.png') }}">
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('app') }}
+	{% endblock %}
+
+	{% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+	{% endblock %}
+{% endblock %}
+
+{% block body %}
+<body>
+    {% if error %}
+        <div>
+            {{ error }} 
+        </div>
+    {% endif %}
+    <div>
+        <div>
+            <div>
+                <form method="POST" action="{{ path('app_loginVerification') }}">
+                    <div>
+                        <input type="email" id="mail" name="mail" placeholder="Adresse Email" required>
+                    </div>
+                    <div>
+                        <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                    </div>
+                    <div>
+                        <button type="submit">Se connecter</button>
+                    </div>
+                </form>
+                <div>
+                    <div>
+                        <a href="{{ path('app_register') }}">S'inscrire ?</a>
+                    </div>
+                    <div>
+                        <a href="#">Mot de passe oublié ?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

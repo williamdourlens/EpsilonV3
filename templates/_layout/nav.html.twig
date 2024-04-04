@@ -1,0 +1,24 @@
+{% block nav %}
+<nav class="bg-gray-900 text-white">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="h-8 w-auto rounded" src="{{ asset('img/logo.png') }}" alt="Logo de l'EPSI">
+                    </div>
+                <div class="hidden sm:ml-6 sm:block">
+                    <div class="flex space-x-4">
+                        <a href="{{ path('app_accueil') }}" class="hover:bg-orange-500 rounded-md px-3 py-2 text-sm font-medium">Accueil</a>
+                        <a href="{{ path('app_upload') }}" class="hover:bg-orange-500 rounded-md px-3 py-2 text-sm font-medium">Upload</a>
+                        {% if not app.session.get('pseudo') %}
+                            <a href="{{ path('app_login') }}" class="hover:bg-orange-500 rounded-md px-3 py-2 text-sm font-medium">Se connecter</a>
+                        {% else %}
+                            <a href="{{ path('app_logout') }}" class="hover:bg-orange-500 rounded-md px-3 py-2 text-sm font-medium">Se déconnecter</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+{% endblock %}

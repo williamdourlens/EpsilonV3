@@ -1,0 +1,21 @@
+{% block head %}
+	<meta charset="UTF-8">
+	<title>{% block title %}EPSILON{% endblock %}</title>
+	<link rel="icon" href="{{ asset('img/logo.png') }}">
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('app') }}
+	{% endblock %}
+
+	{% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+	{% endblock %}
+{% endblock %}
+
+{% block body %}
+<body>
+    {% set sessionValue = app.session.get('session_key') %}
+    <div>
+        <a href="{{ path('app_login') }}">Se connecter</a>
+    </div>
+</body>
+{% endblock %}
